@@ -1,29 +1,26 @@
 #pragma once
-#include <vector>
-#include <queue>
-#include <thread>
-#include <condition_variable>
-#include <iostream>
-#include <mutex>
-#include <fstream>
-#include <sstream>
-#include "TaskComparator.hpp"
 #include "Task.h"
-#include "Timer.h"
-#include "Logger.h"
+#include <queue>
+#include <vector>
+#include <memory>
+#include <functional>
 
+class TaskComparator {
+public:
+    bool operator()(const std::shared_ptr<Task>& a, const std::shared_ptr<Task>& b) const {
+        return a->getPriority() < b->getPriority();
+    }
+};
 
-class Scheduler{
-    private:
-        std::priority_queue<std::shared_ptr<Task>, std::vector<std::shared_ptr<Task>>, TaskComparator> task_queue;
-        std::mutex queue_mutex;
-        std::condition_variable cv;
-        std::vector<std::thread> workers;
-    public:
-        void addTask(const Task& task);
-        void start();
-        void stop();
-        void loadTasksFromFile(const std::string& filename);
-        void saveTasksToFile(const std::string& filename);
+class Scheduler {
+private:
+    std::priority_queue<std::shared_ptr<Task>, std::vector<std::shared_ptr<Task>>, TaskComparator> taskQueue;
 
+public:
+    void addTask(const std::shared_ptr<Task>& task);
+    void runNextTask();
+
+    // New methods for parallel execution
+    std::shared_ptr<Task> getNextTask();
+    bool isEmpty() const;
 };

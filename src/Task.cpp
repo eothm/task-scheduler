@@ -1,42 +1,23 @@
 #include "Task.h"
-#include <string>
-#include<iostream>
-#include<fstream>
-using namespace std;
+#include "Logger.h"
 
-int Task::getPriority() const{
+Task::Task(const std::string& id, int priority, int durationMs)
+    : id(id), priority(priority), durationMs(durationMs) {}
+
+std::string Task::getId() const {
+    return id;
+}
+
+int Task::getPriority() const {
     return priority;
 }
-bool Task::operator<(Task t){
-    return (getPriority() < t.getPriority());
+
+int Task::getDuration() const {
+    return durationMs;
 }
 
-void Task::serialize(const string& filename){
-    {
-        ofstream file(filename, ios::binary);
-        if (!file.is_open()) {
-            cerr
-                << "Error: Failed to open file for writing."
-                << endl;
-            return;
-        }
-        string line= to_string(id) + "," + name + "," + to_string(priority) + "," + to_string(estimated_time_ms);
-        file.write(line.c_str(), line.size());
-        file.close();
-        Logger::getInstance().log("Object serialized successfully.");
-    }
-
-}
-
-void Task::setId(int id){
-    this->id = id;
-}
-void Task::setPriority(int priority){
-    this->priority = priority;
-}
-void Task::setName(string name){
-    this->name = name;
-}
-void Task::setEstimatedTime(int estimated_time){
-    this->estimated_time_ms = estimated_time;
+void Task::execute() const {
+    Logger::getInstance().log("Executing " + id + " for " + std::to_string(durationMs) + "ms");
+    std::this_thread::sleep_for(std::chrono::milliseconds(durationMs));
+    Logger::getInstance().log(id + " completed");
 }

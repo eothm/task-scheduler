@@ -1,4 +1,4 @@
-make_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.10)
 project(TaskScheduler)
 
 # Use C++17 standard
@@ -8,8 +8,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 # Collect source files
 file(GLOB_RECURSE SOURCES
     "main.cpp"
-    "Complex.cpp"
-    "ArrayLike.cpp"
+    "src/Logger.cpp"
+    "src/Scheduler.cpp"
+    "src/Task.cpp"
+    "sc/Timer.cpp"
 )
 
 # Define the executable

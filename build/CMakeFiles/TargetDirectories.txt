@@ -1,0 +1,3 @@
+/home/eothmane/task-scheduler/build/CMakeFiles/Scheduler.dir
+/home/eothmane/task-scheduler/build/CMakeFiles/edit_cache.dir
+/home/eothmane/task-scheduler/build/CMakeFiles/rebuild_cache.dir
