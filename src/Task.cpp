@@ -2,7 +2,11 @@
 #include "Logger.h"
 
 Task::Task(const std::string& id, int priority, int durationMs)
-    : id(id), priority(priority), durationMs(durationMs) {}
+    {
+        this->id = id;
+        this->priority = priority;
+        this->durationMs = durationMs;
+    }
 
 std::string Task::getId() const {
     return id;
