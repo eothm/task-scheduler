@@ -21,6 +21,7 @@ std::shared_ptr<Task> Scheduler::getNextTask() {
         taskQueue.pop();
         return task;
     }
+    Logger::getInstance().log("Queue is empty, no task to fetch.");
     return nullptr;
 }
 

@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/Scheduler.dir/main.cpp.o CMakeFiles/Scheduler.dir/src/Logger.cpp.o CMakeFiles/Scheduler.dir/src/Scheduler.cpp.o CMakeFiles/Scheduler.dir/src/Task.cpp.o -o Scheduler 
+/usr/bin/c++ -g CMakeFiles/Scheduler.dir/main.cpp.o CMakeFiles/Scheduler.dir/src/Logger.cpp.o CMakeFiles/Scheduler.dir/src/Scheduler.cpp.o CMakeFiles/Scheduler.dir/src/Task.cpp.o CMakeFiles/Scheduler.dir/src/Timer.cpp.o -o Scheduler 

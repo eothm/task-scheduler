@@ -7,24 +7,28 @@ Logger& Logger::getInstance() {
     static Logger instance;
     return instance;
 }
+Logger::Logger() {
+    logFile.open("log.txt", std::ios::out | std::ios::trunc);
+    if (!logFile) {
+        std::cerr << "Failed to open log file." << std::endl;
+    }
+}
 
-void Logger::setLogFile(const std::string& filePath) {
-    std::lock_guard<std::mutex> lock(mtx);
-    logFile.open(filePath, std::ios::app);
+Logger::~Logger() {
+    if (logFile.is_open()) {
+        logFile.close();
+    }
 }
 
 void Logger::log(const std::string& message) {
     std::lock_guard<std::mutex> lock(mtx);
-
-    auto now = std::chrono::system_clock::to_time_t(std::chrono::system_clock::now());
-    std::string timestamp = std::ctime(&now);
-    timestamp.pop_back(); 
-
-    std::string output = "[" + timestamp + "] " + message;
-
-    Logger::getInstance().log(output);
+    std::time_t now = std::time(nullptr);
+    std::string ts = std::ctime(&now);
+    ts.pop_back();
 
     if (logFile.is_open()) {
-        logFile << output << std::endl;
+        logFile << "[" << ts << "] " << message << std::endl;
+    } else {
+        std::cerr << "[" << ts << "] " << message << std::endl;
     }
 }

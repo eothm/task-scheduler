@@ -31,6 +31,9 @@ default_target: all
 
 .SUFFIXES: .hpux_make_needs_suffix_list
 
+# Produce verbose output by default.
+VERBOSE = 1
+
 # Command-line flag to silence nested $(MAKE).
 $(VERBOSE)MAKESILENT = -s
 
@@ -225,6 +228,30 @@ src/Task.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/src/Task.cpp.s
 .PHONY : src/Task.cpp.s
 
+src/Timer.o: src/Timer.cpp.o
+.PHONY : src/Timer.o
+
+# target to build an object file
+src/Timer.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/src/Timer.cpp.o
+.PHONY : src/Timer.cpp.o
+
+src/Timer.i: src/Timer.cpp.i
+.PHONY : src/Timer.i
+
+# target to preprocess a source file
+src/Timer.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/src/Timer.cpp.i
+.PHONY : src/Timer.cpp.i
+
+src/Timer.s: src/Timer.cpp.s
+.PHONY : src/Timer.s
+
+# target to generate assembly for a file
+src/Timer.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Scheduler.dir/build.make CMakeFiles/Scheduler.dir/src/Timer.cpp.s
+.PHONY : src/Timer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -246,6 +273,9 @@ help:
 	@echo "... src/Task.o"
 	@echo "... src/Task.i"
 	@echo "... src/Task.s"
+	@echo "... src/Timer.o"
+	@echo "... src/Timer.i"
+	@echo "... src/Timer.s"
 .PHONY : help
 
 

@@ -1,0 +1,18 @@
+[Tue Apr 22 10:51:03 2025] Added task: Task1
+[Tue Apr 22 10:51:03 2025] Added task: Task2
+[Tue Apr 22 10:51:03 2025] Added task: Task3
+[Tue Apr 22 10:51:03 2025] Added task: Task4
+[Tue Apr 22 10:51:03 2025] Tasks loaded from file: ../tasks.txt
+[Tue Apr 22 10:51:03 2025] Running task in parallel: Task2
+[Tue Apr 22 10:51:03 2025] Executing Task2 for 7000ms
+[Tue Apr 22 10:51:03 2025] Running task in parallel: Task4
+[Tue Apr 22 10:51:03 2025] Executing Task4 for 5000ms
+[Tue Apr 22 10:51:03 2025] Running task in parallel: Task1
+[Tue Apr 22 10:51:03 2025] Executing Task1 for 3000ms
+[Tue Apr 22 10:51:06 2025] Task1 completed
+[Tue Apr 22 10:51:08 2025] Task4 completed
+[Tue Apr 22 10:51:10 2025] Task2 completed
+[Tue Apr 22 10:51:10 2025] Remaining task(s) will now run sequentially:
+[Tue Apr 22 10:51:10 2025] Running task: Task3
+[Tue Apr 22 10:51:10 2025] Executing Task3 for 2000ms
+[Tue Apr 22 10:51:12 2025] Task3 completed

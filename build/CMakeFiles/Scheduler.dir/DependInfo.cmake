@@ -12,6 +12,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/eothmane/task-scheduler/src/Logger.cpp" "CMakeFiles/Scheduler.dir/src/Logger.cpp.o" "gcc" "CMakeFiles/Scheduler.dir/src/Logger.cpp.o.d"
   "/home/eothmane/task-scheduler/src/Scheduler.cpp" "CMakeFiles/Scheduler.dir/src/Scheduler.cpp.o" "gcc" "CMakeFiles/Scheduler.dir/src/Scheduler.cpp.o.d"
   "/home/eothmane/task-scheduler/src/Task.cpp" "CMakeFiles/Scheduler.dir/src/Task.cpp.o" "gcc" "CMakeFiles/Scheduler.dir/src/Task.cpp.o.d"
+  "/home/eothmane/task-scheduler/src/Timer.cpp" "CMakeFiles/Scheduler.dir/src/Timer.cpp.o" "gcc" "CMakeFiles/Scheduler.dir/src/Timer.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
